@@ -9,8 +9,8 @@ const theme = {
     black,
     grey,
     primary: {
-      light: red[200],
-      main: red[500],
+      light: green[200],
+      main: green[600],
     },
     secondary: {
       main: green[500],

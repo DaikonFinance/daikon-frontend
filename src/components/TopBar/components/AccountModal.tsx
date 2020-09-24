@@ -2,8 +2,8 @@ import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress } from '../../../sushi/utils'
+import useDaikon from '../../../hooks/useDaikon'
+import { getDaikonAddress } from '../../../daikon/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import Button from '../../Button'
 import CardIcon from '../../CardIcon'
@@ -23,8 +23,8 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
     reset()
   }, [onDismiss, reset])
 
-  const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+  const daikon = useDaikon()
+  const daikonBalance = useTokenBalance(getDaikonAddress(daikon))
 
   return (
     <Modal>
@@ -35,10 +35,10 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <div style={{ display: 'flex' }}>
           <StyledBalanceWrapper>
             <CardIcon>
-              <span>🍣</span>
+              <span><img src="daikon-icon-med.png" alt="DAIKON" /></span>
             </CardIcon>
             <StyledBalance>
-              <Value value={getBalanceNumber(sushiBalance)} />
+              <Value value={getBalanceNumber(daikonBalance)} />
               <Label text="SUSHI Balance" />
             </StyledBalance>
           </StyledBalanceWrapper>

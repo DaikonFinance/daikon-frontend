@@ -7,8 +7,8 @@ import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
 import useRedeem from '../../hooks/useRedeem'
-import useSushi from '../../hooks/useSushi'
-import { getMasterChefContract } from '../../sushi/utils'
+import useDaikon from '../../hooks/useDaikon'
+import { getMasterGardenerContract } from '../../daikon/utils'
 import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
 import Stake from './components/Stake'
@@ -37,14 +37,14 @@ const Farm: React.FC = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const sushi = useSushi()
+  const daikon = useDaikon()
   const { ethereum } = useWallet()
 
   const lpContract = useMemo(() => {
     return getContract(ethereum as provider, lpTokenAddress)
   }, [ethereum, lpTokenAddress])
 
-  const { onRedeem } = useRedeem(getMasterChefContract(sushi))
+  const { onRedeem } = useRedeem(getMasterGardenerContract(daikon))
 
   const lpTokenName = useMemo(() => {
     return lpToken.toUpperCase()
@@ -78,7 +78,7 @@ const Farm: React.FC = () => {
         <Spacer size="lg" />
         <StyledInfo>
           ⭐️ Every time you stake and unstake LP tokens, the contract will
-          automagically harvest SUSHI rewards for you!
+          automatically harvest DAIKON rewards for you!
         </StyledInfo>
         <Spacer size="lg" />
       </StyledFarm>

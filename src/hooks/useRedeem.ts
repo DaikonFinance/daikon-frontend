@@ -1,16 +1,16 @@
 import { useCallback } from 'react'
 import { useWallet } from 'use-wallet'
 import { Contract } from 'web3-eth-contract'
-import { redeem } from '../sushi/utils'
+import { redeem } from '../daikon/utils'
 
-const useRedeem = (masterChefContract: Contract) => {
+const useRedeem = (masterGardenerContract: Contract) => {
   const { account } = useWallet()
 
   const handleRedeem = useCallback(async () => {
-    const txHash = await redeem(masterChefContract, account)
+    const txHash = await redeem(masterGardenerContract, account)
     console.log(txHash)
     return txHash
-  }, [account, masterChefContract])
+  }, [account, masterGardenerContract])
 
   return { onRedeem: handleRedeem }
 }

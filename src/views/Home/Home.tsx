@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import chef from '../../assets/img/chef.png'
+import gardener from '../../assets/img/gardener.png'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
 import Page from '../../components/Page'
@@ -12,9 +12,9 @@ const Home: React.FC = () => {
   return (
     <Page>
       <PageHeader
-        icon={<img src={chef} height={120} />}
-        title="MasterChef is Ready"
-        subtitle="Stake Uniswap LP tokens to claim your very own yummy SUSHI!"
+        icon="🧑&zwj;🌾"
+        title="MasterGardener is Ready"
+        subtitle="Stake UniSwap & SushiSwap LP tokens to grow your very own DAIKON!"
       />
 
       <Container>
@@ -22,8 +22,8 @@ const Home: React.FC = () => {
       </Container>
       <Spacer size="lg" />
       <StyledInfo>
-        🏆<b>Pro Tip</b>: SUSHI-ETH UNI-V2 LP token pool yields TWICE more token
-        rewards per block.
+        🏆<b>Pro Tip</b>: DAIKON-DAI SushiSwap-LP token pool yields 4x(!) more
+        rewards per block. Or add some variety to your crops with DAIKON-YAM, DAIKON-SUSHI, DAIKON-PICKLE and DAIKON-SHROOM for 2x rewards!
       </StyledInfo>
       <Spacer size="lg" />
       <div
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           margin: '0 auto',
         }}
       >
-        <Button text="🔪 See the Menu" to="/farms" variant="secondary" />
+        <Button text="See Farms" to="/farms" variant="secondary" />
       </div>
     </Page>
   )

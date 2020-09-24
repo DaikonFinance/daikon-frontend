@@ -6,12 +6,12 @@ import { useWallet } from 'use-wallet'
 import { Contract } from 'web3-eth-contract'
 
 import {
-  getMasterChefContract,
+  getMasterGardenerContract,
   getWethContract,
   getFarms,
   getTotalLPWethValue,
-} from '../sushi/utils'
-import useSushi from './useSushi'
+} from '../daikon/utils'
+import useDaikon from './useDaikon'
 import useBlock from './useBlock'
 
 export interface StakedValue {
@@ -25,10 +25,10 @@ export interface StakedValue {
 const useAllStakedValue = () => {
   const [balances, setBalance] = useState([] as Array<StakedValue>)
   const { account }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
-  const farms = getFarms(sushi)
-  const masterChefContract = getMasterChefContract(sushi)
-  const wethContact = getWethContract(sushi)
+  const daikon = useDaikon()
+  const farms = getFarms(daikon)
+  const masterGardenerContract = getMasterGardenerContract(daikon)
+  const wethContact = getWethContract(daikon)
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
@@ -44,7 +44,7 @@ const useAllStakedValue = () => {
           tokenContract: Contract
         }) =>
           getTotalLPWethValue(
-            masterChefContract,
+            masterGardenerContract,
             wethContact,
             lpContract,
             tokenContract,
@@ -54,13 +54,13 @@ const useAllStakedValue = () => {
     )
 
     setBalance(balances)
-  }, [account, masterChefContract, sushi])
+  }, [account, masterGardenerContract, daikon])
 
   useEffect(() => {
-    if (account && masterChefContract && sushi) {
+    if (account && masterGardenerContract && daikon) {
       fetchAllStakedValue()
     }
-  }, [account, block, masterChefContract, setBalance, sushi])
+  }, [account, block, masterGardenerContract, setBalance, daikon])
 
   return balances
 }

@@ -8,7 +8,7 @@ const Nav: React.FC = () => {
         target="_blank"
         href="https://etherscan.io/address/0xc2edad668740f1aa35e4d8f227fb8e17dca888cd#code"
       >
-        MasterChef Contract
+        MasterGardener Contract
       </StyledLink>
       <StyledLink
         target="_blank"
@@ -19,10 +19,10 @@ const Nav: React.FC = () => {
       <StyledLink target="_blank" href="https://discord.gg/hJ2p555">
         Discord
       </StyledLink>
-      <StyledLink target="_blank" href="https://github.com/sushiswap">
+      <StyledLink target="_blank" href="https://github.com/daikonswap">
         Github
       </StyledLink>
-      <StyledLink target="_blank" href="https://twitter.com/sushiswap">
+      <StyledLink target="_blank" href="https://twitter.com/daikonswap">
         Twitter
       </StyledLink>
     </StyledNav>

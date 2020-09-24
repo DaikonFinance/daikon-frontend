@@ -14,14 +14,24 @@ import Spacer from '../Spacer'
 
 import WalletCard from './components/WalletCard'
 
+declare var window: any;
+
 const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
-  const { account, connect } = useWallet()
+  var { account, connect } = useWallet()
+
+  function connectAccount(){
+    connect('injected')
+    account = window.web3.eth.accounts[0]
+    console.log('TEST')
+    console.log(window.web3.eth.accounts[0])
+  }
 
   useEffect(() => {
     if (account) {
       onDismiss()
     }
   }, [account, onDismiss])
+
 
   return (
     <Modal>
@@ -31,15 +41,15 @@ const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <StyledWalletsWrapper>
           <StyledWalletCard>
             <WalletCard
-              icon={<img src={metamaskLogo} style={{ height: 32 }} />}
-              onConnect={() => connect('injected')}
+              icon={<img src={metamaskLogo} style={{ height: 32 }} alt="DAIKON" />}
+              onConnect={() => connectAccount()}
               title="Metamask"
             />
           </StyledWalletCard>
           <Spacer size="sm" />
           <StyledWalletCard>
             <WalletCard
-              icon={<img src={walletConnectLogo} style={{ height: 24 }} />}
+              icon={<img src={walletConnectLogo} style={{ height: 24 }} alt="DAIKON" />}
               onConnect={() => connect('walletconnect')}
               title="WalletConnect"
             />

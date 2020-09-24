@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import chef from '../../assets/img/chef.png'
+import gardener from '../../assets/img/gardener.png'
 
 const Logo: React.FC = () => {
   return (
     <StyledLogo to="/">
-      <img src={chef} height="32" style={{ marginTop: -4 }} />
+      <img src="daikon-icon-med.png" height="32" style={{ marginTop: -4 }} alt="DAIKON" />
       <StyledText>
-        SushiSwap <MasterChefText>MasterChef</MasterChefText>
+        DAIKON <MasterGardenerText>MasterGardener</MasterGardenerText>
       </StyledText>
     </StyledLogo>
   )
@@ -37,7 +37,7 @@ const StyledText = styled.span`
   }
 `
 
-const MasterChefText = styled.span`
+const MasterGardenerText = styled.span`
   font-family: 'Kaushan Script', sans-serif;
 `
 
